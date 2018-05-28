@@ -15,14 +15,11 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\CommonSchema\ArrayCollection\Trading\Payment;
+namespace Gpupo\CommonSchema\ArrayCollection\Trading\Payment\Collector;
 
-use Gpupo\CommonSchema\ArrayCollection\Thing\AbstractCollection;
+use Gpupo\CommonSchema\ArrayCollection\Thing\AbstractEntity;
 
-class Collection extends AbstractCollection
+class Collector extends AbstractEntity
 {
-    public function factoryElement($data)
-    {
-        return new Payment($data);
-    }
+    protected $tableName = 'trading_payment_collector';
 }

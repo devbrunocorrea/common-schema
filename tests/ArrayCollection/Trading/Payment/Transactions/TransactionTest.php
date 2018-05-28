@@ -15,22 +15,22 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\Tests\CommonSchema\ArrayCollection\Trading\Payment;
+namespace Gpupo\Tests\CommonSchema\ArrayCollection\Trading\Payment\Transactions;
 
-use Gpupo\CommonSchema\ArrayCollection\Trading\Payment\Order;
-use Gpupo\CommonSchema\ArrayCollection\Trading\Payment\Customer;
+use Gpupo\CommonSchema\ArrayCollection\Trading\Order\Customer\Customer;
+use Gpupo\CommonSchema\ArrayCollection\Trading\Order\Order;
+use Gpupo\CommonSchema\ArrayCollection\Trading\Order\Shippings\Seller;
 use Gpupo\CommonSchema\ArrayCollection\Trading\Payment\Payment;
-use Gpupo\CommonSchema\ArrayCollection\Trading\Payment\Seller;
-use Gpupo\CommonSchema\ArrayCollection\Trading\Payment\Transaction;
+use Gpupo\CommonSchema\ArrayCollection\Trading\Payment\Transactions\Transaction;
 use Gpupo\Tests\CommonSchema\AbstractTestCase;
 
 /**
- * @coversDefaultClass \Gpupo\CommonSchema\ArrayCollection\Trading\Payment\Transaction
+ * @coversDefaultClass \Gpupo\CommonSchema\ArrayCollection\Trading\Payment\Transactions\Transaction
  */
 class TransactionTest extends AbstractTestCase
 {
     /**
-     * @return \Gpupo\CommonSchema\ArrayCollection\Trading\Payment\Transaction
+     * @return \Gpupo\CommonSchema\ArrayCollection\Trading\Payment\Transactions\Transaction
      */
     public function dataProviderTransaction()
     {

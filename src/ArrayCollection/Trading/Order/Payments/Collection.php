@@ -18,7 +18,6 @@ declare(strict_types=1);
 namespace Gpupo\CommonSchema\ArrayCollection\Trading\Order\Payments;
 
 use Gpupo\CommonSchema\ArrayCollection\Thing\AbstractCollection;
-use Gpupo\CommonSchema\ArrayCollection\Trading\Payment\Payment;
 
 class Collection extends AbstractCollection
 {

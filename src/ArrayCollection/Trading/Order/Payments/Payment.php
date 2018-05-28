@@ -15,9 +15,10 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\CommonSchema\ArrayCollection\Trading\Payment;
+namespace Gpupo\CommonSchema\ArrayCollection\Trading\Payment\Transactions;
 
-final class Transaction extends AbstractTransaction
+use Gpupo\CommonSchema\ArrayCollection\Trading\Payment\Payment as MainPayment;
+
+class Payment extends MainPayment
 {
-    protected $tableName = 'trading_payment_transaction';
 }

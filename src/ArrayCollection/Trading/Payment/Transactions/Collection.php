@@ -15,7 +15,7 @@ declare(strict_types=1);
  *
  */
 
-namespace Gpupo\CommonSchema\ArrayCollection\Trading\Payment;
+namespace Gpupo\CommonSchema\ArrayCollection\Trading\Payment\Transactions;
 
 use Gpupo\CommonSchema\ArrayCollection\Thing\AbstractCollection;
 
@@ -23,6 +23,6 @@ class Collection extends AbstractCollection
 {
     public function factoryElement($data)
     {
-        return new Payment($data);
+        return new Transaction($data);
     }
 }
