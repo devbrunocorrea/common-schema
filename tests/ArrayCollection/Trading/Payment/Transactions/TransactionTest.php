@@ -59,7 +59,7 @@ class TransactionTest extends AbstractTestCase
      * @testdox Cover methods ``setTransactionNumber`` and ``getTransactionNumber``
      * @dataProvider dataProviderTransaction
      */
-    public function testSetAndGGetTransactionNumber(Transaction $transaction, array $expected)
+    public function testSetAndGetTransactionNumber(Transaction $transaction, array $expected)
     {
         $transaction->setTransactionNumber($expected['transaction_number']);
         $this->assertSame($expected['transaction_number'], $transaction->getTransactionNumber());
@@ -69,7 +69,7 @@ class TransactionTest extends AbstractTestCase
      * @testdox Cover methods ``setDescription`` and ``getDescription``
      * @dataProvider dataProviderTransaction
      */
-    public function testSetAndGGetDescription(Transaction $transaction, array $expected)
+    public function testSetAndGetDescription(Transaction $transaction, array $expected)
     {
         $transaction->setDescription($expected['description']);
         $this->assertSame($expected['description'], $transaction->getDescription());
