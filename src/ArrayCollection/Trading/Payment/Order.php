@@ -17,8 +17,8 @@ declare(strict_types=1);
 
 namespace Gpupo\CommonSchema\ArrayCollection\Trading\Payment;
 
-use Gpupo\CommonSchema\ArrayCollection\Trading\Order\AbstractOrder;
+use Gpupo\CommonSchema\ArrayCollection\Trading\Order\Order as MainOrder;
 
-class Order extends AbstractOrder
+class Order extends MainOrder
 {
 }

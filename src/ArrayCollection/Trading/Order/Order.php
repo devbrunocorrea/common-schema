@@ -17,7 +17,7 @@ declare(strict_types=1);
 
 namespace Gpupo\CommonSchema\ArrayCollection\Trading\Order;
 
-final class Order extends AbstractOrder
+class Order extends AbstractOrder
 {
     protected $tableName = 'trading_order';
 }

@@ -18,9 +18,6 @@ declare(strict_types=1);
 namespace Gpupo\CommonSchema\ArrayCollection\Trading\Payment;
 
 use Gpupo\CommonSchema\ArrayCollection\Thing\AbstractEntity;
-use Gpupo\CommonSchema\ArrayCollection\Trading\Order\Customer\Customer;
-use Gpupo\CommonSchema\ArrayCollection\Trading\Order\Order;
-use Gpupo\CommonSchema\ArrayCollection\Trading\Order\Shippings\Seller;
 
 class AbstractTransaction extends AbstractEntity
 {
