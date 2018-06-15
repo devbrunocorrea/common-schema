@@ -267,6 +267,13 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     private $atm_transfer_reference;
 
     /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order", inversedBy="payments")
+     */
+    private $order;
+
+    /**
      * Get id.
      *
      * @return int
@@ -1042,5 +1049,28 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getAtmTransferReference()
     {
         return $this->atm_transfer_reference;
+    }
+
+    /**
+     * Get order.
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getOrder()
+    {
+        return $this->order;
+    }
+
+    /**
+     * Set order.
+     *
+     * @param null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order $order
+     *
+     * @return Payment
+     */
+    public function setOrder(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order $order)
+    {
+        $this->order = $order;
+        return $this;
     }
 }

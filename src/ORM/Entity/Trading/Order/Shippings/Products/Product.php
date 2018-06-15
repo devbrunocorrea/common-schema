@@ -93,6 +93,13 @@ class Product extends \Gpupo\CommonSchema\AbstractORMEntity
     private $unit_price;
 
     /**
+     * @var Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping
+     *
+     * @ORM\ManyToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping", inversedBy="products")
+     */
+    private $shipping;
+
+    /**
      * Get id.
      *
      * @return int
@@ -293,4 +300,28 @@ class Product extends \Gpupo\CommonSchema\AbstractORMEntity
     {
         return $this->unit_price;
     }
+
+    /**
+     * Get shipping.
+     *
+     * @return Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping
+     */
+    public function getShipping()
+    {
+        return $this->shipping;
+    }
+
+    /**
+     * Set order.
+     *
+     * @param null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping $shipping
+     *
+     * @return Shipping
+     */
+    public function setShipping(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping $shipping)
+    {
+        $this->shipping = $shipping;
+        return $this;
+    }
+
 }

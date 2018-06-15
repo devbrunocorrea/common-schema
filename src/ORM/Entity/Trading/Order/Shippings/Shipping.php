@@ -154,9 +154,9 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Products\Product", mappedBy="product")
+     * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Products\Product", mappedBy="shipping")
      */
-    private $product;
+    private $products;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
@@ -185,6 +185,13 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
      * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Feedback\Item", mappedBy="feedback")
      */
     private $feedback;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order", inversedBy="shippings")
+     */
+    private $order;
 
     /**
      * Constructor.
@@ -770,5 +777,28 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getFeedback()
     {
         return $this->feedback;
+    }
+
+    /**
+     * Get order.
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getOrder()
+    {
+        return $this->order;
+    }
+
+    /**
+     * Set order.
+     *
+     * @param null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order $order
+     *
+     * @return Shipping
+     */
+    public function setOrder(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Order $order)
+    {
+        $this->order = $order;
+        return $this;
     }
 }
