@@ -308,7 +308,7 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @return Shipping
      */
-    public function setShipping(Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping $shipping){
+    public function setShipping(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping $shipping){
         $this->shipping = $shipping;
         return $this;
     }

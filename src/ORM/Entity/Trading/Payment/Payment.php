@@ -1073,4 +1073,8 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
         $this->order = $order;
         return $this;
     }
+
+    public function __toString(){
+      return $this->getPaymentNumber();
+    }
 }

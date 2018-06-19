@@ -642,7 +642,7 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @return Shipping
      */
-    public function addTransport(Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Transport\Item $transport)
+    public function addTransport(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Transport\Item $transport)
     {
         $this->transports[] = $transport;
 
@@ -656,7 +656,7 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @return bool TRUE if this collection contained the specified element, FALSE otherwise
      */
-    public function removeTransport(Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Transport\Item $transport)
+    public function removeTransport(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Transport\Item $transport)
     {
         return $this->transports->removeElement($transport);
     }
@@ -816,5 +816,9 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
 
     public function getInvoices(){
       return $this->invoices;
+    }
+
+    public function __toString(){
+      return $this->getShippingNumber();
     }
 }
