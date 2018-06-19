@@ -161,30 +161,30 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Transport\Item", mappedBy="transport")
+     * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Transport\Item", mappedBy="shipping")
      */
-    private $transport;
+    private $transports;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Invoice\Item", mappedBy="invoice")
+     * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Invoice\Item", mappedBy="shipping")
      */
-    private $invoice;
+    private $invoices;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Comments\Item", mappedBy="comment")
+     * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Comments\Item", mappedBy="shipping")
      */
-    private $comment;
+    private $comments;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Feedback\Item", mappedBy="feedback")
+     * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Feedback\Item", mappedBy="shipping")
      */
-    private $feedback;
+    private $feedbacks;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
@@ -198,11 +198,11 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
      */
     public function __construct()
     {
-        $this->product = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->transport = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->invoice = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->comment = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->feedback = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->products = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->transports = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->invoices = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->comments = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->feedbacks = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -608,7 +608,7 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
      */
     public function addProduct(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Products\Product $product)
     {
-        $this->product[] = $product;
+        $this->products[] = $product;
 
         return $this;
     }
@@ -622,7 +622,7 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
      */
     public function removeProduct(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Products\Product $product)
     {
-        return $this->product->removeElement($product);
+        return $this->products->removeElement($product);
     }
 
     /**
@@ -630,21 +630,21 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getProduct()
+    public function getProducts()
     {
-        return $this->product;
+        return $this->products;
     }
 
     /**
      * Add transport.
      *
-     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Transport\Item $transport
+     * @param Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Transport\Item $transport
      *
      * @return Shipping
      */
-    public function addTransport(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Transport\Item $transport)
+    public function addTransport(Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Transport\Item $transport)
     {
-        $this->transport[] = $transport;
+        $this->transports[] = $transport;
 
         return $this;
     }
@@ -652,13 +652,13 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * Remove transport.
      *
-     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Transport\Item $transport
+     * @param Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Transport\Item $transport
      *
      * @return bool TRUE if this collection contained the specified element, FALSE otherwise
      */
-    public function removeTransport(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Transport\Item $transport)
+    public function removeTransport(Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Transport\Item $transport)
     {
-        return $this->transport->removeElement($transport);
+        return $this->transports->removeElement($transport);
     }
 
     /**
@@ -666,9 +666,21 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getTransport()
+    public function getTransports()
     {
-        return $this->transport;
+        return $this->transports;
+    }
+
+    /**
+     * Set transport.
+     *
+     * @param \Doctrine\Common\Collections\Collection
+     * @return Shipping
+     */
+    public function setTransports(\Doctrine\Common\Collections\Collection $transports)
+    {
+         $this->transports = $transports;
+        return $this;
     }
 
     /**
@@ -680,7 +692,7 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
      */
     public function addInvoice(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Invoice\Item $invoice)
     {
-        $this->invoice[] = $invoice;
+        $this->invoices[] = $invoice;
 
         return $this;
     }
@@ -694,7 +706,7 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
      */
     public function removeInvoice(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Invoice\Item $invoice)
     {
-        return $this->invoice->removeElement($invoice);
+        return $this->invoices->removeElement($invoice);
     }
 
     /**
@@ -704,7 +716,7 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
      */
     public function getInvoice()
     {
-        return $this->invoice;
+        return $this->invoices;
     }
 
     /**
@@ -716,7 +728,7 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
      */
     public function addComment(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Comments\Item $comment)
     {
-        $this->comment[] = $comment;
+        $this->comments[] = $comment;
 
         return $this;
     }
@@ -730,7 +742,7 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
      */
     public function removeComment(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Comments\Item $comment)
     {
-        return $this->comment->removeElement($comment);
+        return $this->comments->removeElement($comment);
     }
 
     /**
@@ -738,9 +750,9 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getComment()
+    public function getComments()
     {
-        return $this->comment;
+        return $this->comments;
     }
 
     /**
@@ -752,7 +764,7 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
      */
     public function addFeedback(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Feedback\Item $feedback)
     {
-        $this->feedback[] = $feedback;
+        $this->feedbacks[] = $feedback;
 
         return $this;
     }
@@ -766,7 +778,7 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
      */
     public function removeFeedback(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Feedback\Item $feedback)
     {
-        return $this->feedback->removeElement($feedback);
+        return $this->feedbacks->removeElement($feedback);
     }
 
     /**
@@ -774,9 +786,9 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getFeedback()
+    public function getFeedbacks()
     {
-        return $this->feedback;
+        return $this->feedbacks;
     }
 
     /**
@@ -800,5 +812,9 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
     {
         $this->order = $order;
         return $this;
+    }
+
+    public function getInvoices(){
+      return $this->invoices;
     }
 }

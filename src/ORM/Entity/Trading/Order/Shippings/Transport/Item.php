@@ -93,6 +93,13 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     private $expands;
 
     /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToOne(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping", inversedBy="transports")
+     */
+     private $shipping;
+
+    /**
      * Get id.
      *
      * @return int
@@ -292,5 +299,30 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getExpands()
     {
         return $this->expands;
+    }
+
+    /**
+     * Set shipping.
+     *
+     * @param null|\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping $shipping
+     *
+     * @return Shipping
+     */
+    public function setShipping(Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping $shipping){
+        $this->shipping = $shipping;
+        return $this;
+    }
+
+    /**
+     * Get shipping.
+     *
+     * @return Shipping
+     */
+    public function getShipping(){
+      return $this->shipping;
+    }
+
+    public function __toString(){
+      return $this->getTrackingNumber();
     }
 }

@@ -832,6 +832,20 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     }
 
     /**
+     * set shippings.
+     *
+     * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping $shippings
+     *
+     * @return Order
+     */
+    public function setShippings(\Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping $shippings)
+    {
+        $this->shippings = $shipping;
+
+        return $this;
+    }
+
+    /**
      * Add payment.
      *
      * @param \Gpupo\CommonSchema\ORM\Entity\Trading\Payment\Payment $payment
@@ -901,5 +915,9 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     public function getFeedbacks()
     {
         return $this->feedbacks;
+    }
+
+    public function __toString(){
+        return $this->getOrderNumber();
     }
 }

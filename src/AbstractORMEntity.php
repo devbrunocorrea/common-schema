@@ -28,21 +28,21 @@ use Gedmo\Mapping\Annotation as Gedmo;
 abstract class AbstractORMEntity
 {
     /**
-     * @var DateTime (Record creation timestamp)
+     * @var \DateTime (Record creation timestamp)
      * @Gedmo\Timestampable(on="create")
      * @ORM\Column(type="datetime")
      */
     protected $createdAt;
 
     /**
-     * @var DateTime (Record update timestamp)
+     * @var \DateTime (Record update timestamp)
      * @Gedmo\Timestampable(on="update")
      * @ORM\Column(type="datetime")
      */
     protected $updatedAt;
 
     /**
-     * @var DateTime
+     * @var \DateTime
      * @ORM\Column(type="datetime", nullable=true)
      * @Gedmo\Versioned
      */
@@ -51,9 +51,9 @@ abstract class AbstractORMEntity
     /**
      * Returns createdAt.
      *
-     * @return DateTime
+     * @return \DateTime
      */
-    public function getCreatedAt(): ?DateTime
+    public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
@@ -61,9 +61,9 @@ abstract class AbstractORMEntity
     /**
      * Returns updatedAt.
      *
-     * @return DateTime
+     * @return \DateTime
      */
-    public function getUpdatedAt(): ?DateTime
+    public function getUpdatedAt(): ?\DateTime
     {
         return $this->updatedAt;
     }
@@ -71,9 +71,9 @@ abstract class AbstractORMEntity
     /**
      * Sets createdAt.
      *
-     * @param DateTime $createdAt
+     * @param \DateTime $createdAt
      */
-    public function setCreatedAt(DateTime $createdAt): void
+    public function setCreatedAt(\DateTime $createdAt): void
     {
         $this->createdAt = $createdAt;
     }
@@ -81,9 +81,9 @@ abstract class AbstractORMEntity
     /**
      * Sets updatedAt.
      *
-     * @param DateTime $updatedAt
+     * @param \DateTime $updatedAt
      */
-    public function setUpdatedAt(DateTime $updatedAt): void
+    public function setUpdatedAt(\DateTime $updatedAt): void
     {
         $this->updatedAt = $updatedAt;
     }
@@ -91,7 +91,7 @@ abstract class AbstractORMEntity
     /**
      * Sets deletedAt.
      *
-     * @param null|Datetime $deletedAt
+     * @param null|\Datetime $deletedAt
      */
     public function setDeletedAt(\DateTime $deletedAt = null): void
     {
@@ -103,7 +103,7 @@ abstract class AbstractORMEntity
      *
      * @return DateTime
      */
-    public function getDeletedAt(): ?DateTime
+    public function getDeletedAt(): ?\DateTime
     {
         return $this->deletedAt;
     }
