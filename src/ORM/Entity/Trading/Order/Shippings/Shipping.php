@@ -168,7 +168,7 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Invoice\Item", mappedBy="shipping")
+     * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Invoice\Item", mappedBy="shipping", cascade={"persist"})
      */
     private $invoices;
 
@@ -818,7 +818,12 @@ class Shipping extends \Gpupo\CommonSchema\AbstractORMEntity
       return $this->invoices;
     }
 
+    /**
+    * To string
+    *
+    * @return string
+    */
     public function __toString(){
-      return $this->getShippingNumber();
+      return sprintf("%s", $this->getShippingNumber());
     }
 }

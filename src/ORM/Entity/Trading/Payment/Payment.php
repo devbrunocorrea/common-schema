@@ -1074,7 +1074,12 @@ class Payment extends \Gpupo\CommonSchema\AbstractORMEntity
         return $this;
     }
 
+    /**
+    * To string
+    *
+    * @return string
+    */
     public function __toString(){
-      return $this->getPaymentNumber();
+      return sprintf("%s", $this->getPaymentNumber());
     }
 }

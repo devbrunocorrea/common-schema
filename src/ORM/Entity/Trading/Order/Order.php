@@ -205,7 +205,7 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping", mappedBy="order")
+     * @ORM\OneToMany(targetEntity="Gpupo\CommonSchema\ORM\Entity\Trading\Order\Shippings\Shipping", mappedBy="order", cascade={"persist"})
      */
     private $shippings;
 
@@ -917,7 +917,12 @@ class Order extends \Gpupo\CommonSchema\AbstractORMEntity
         return $this->feedbacks;
     }
 
+    /**
+    * To string
+    *
+    * @return string
+    */
     public function __toString(){
-        return $this->getOrderNumber();
+        return sprintf("%s", $this->getOrderNumber());
     }
 }

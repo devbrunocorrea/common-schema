@@ -322,7 +322,11 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
       return $this->shipping;
     }
 
+    /**
+    * To string
+    * @return string
+    */
     public function __toString(){
-      return $this->getTrackingNumber();
+      return sprintf("%s",$this->getTrackingNumber());
     }
 }

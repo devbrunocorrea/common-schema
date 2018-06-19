@@ -291,7 +291,12 @@ class Item extends \Gpupo\CommonSchema\AbstractORMEntity
       return $this->shipping;
     }
 
+    /**
+    * To string
+    *
+    * @return string
+    */
     public function __toString(){
-      return $this->getInvoiceNumber();
+      return sprintf("%s", $this->getInvoiceNumber());
     }
 }
